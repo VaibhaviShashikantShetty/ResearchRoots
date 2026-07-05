@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResearchRoots | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!--nav panel for logo and logout opt-->
+    <nav class="topnav">
+        <div class="brand">
+        <img class="brand-icon" src="{{ url_for('static', filename='/images/icon.jpeg') }}" alt="ResearchRoots Icon">
+
+        <img class="brand-logo" src="{{ url_for('static', filename='/images/prime.jpeg') }}" alt="ResearchRoots">
+        </div>
+        <a href="{{ url_for('logout') }}" class="logout-link">Log out</a>
+    </nav>
+
+    <div class="dashboard-empty">
+        <div class="success-box">
+            <span class="success-icon">✅</span>
+            <h1>You're logged in, {{ user_name }}!</h1>
+            <p>This is your ResearchRoots dashboard. 
+               Your roadmap, curated resources, and streaks will live here next.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
