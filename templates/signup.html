@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResearchRoots | Create Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="topnav">
+        <div class="brand">
+         <img class="brand-icon"
+         src="{{ url_for('static', filename='/images/icon.jpeg') }}"
+         alt="ResearchRoots Icon">
+
+         <img class="brand-logo"
+         src="{{ url_for('static', filename='/images/prime.jpeg') }}"
+         alt="ResearchRoots">
+        </div>
+    </nav>
+
+    <div class="split-screen">
+        <div class="left-panel">
+            <div class="left-content">
+                <div class="logo-row">
+                    <div class="logo-box">🌱</div>
+                    <h1 class="logo-text">Research<span>Roots</span></h1>
+                </div>
+
+                <h2 class="headline">Where every researcher begins their journey.</h2>
+                <p class="subtext">
+                    Join thousands of beginner researchers learning how to ask
+                    better questions, find credible sources, and turn ideas
+                    into impact — one step at a time.
+                </p>
+
+                <ul class="feature-list">
+                    <li><span class="feature-icon">🧭</span> Step-by-step research roadmap, tailored to your field</li>
+                    <li><span class="feature-icon">📚</span> Curated papers, videos, tools and datasets</li>
+                    <li><span class="feature-icon">🔥</span> Daily streaks and XP to keep momentum alive</li>
+                    <li><span class="feature-icon">🤝</span> Community feedback and peer review prompts</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="auth-card">
+
+                <div class="tabs">
+                    <a href="{{ url_for('login') }}" class="tab">Sign in</a>
+                    <a href="{{ url_for('signup') }}" class="tab active">Create account</a>
+                </div>
+
+                <h2 class="welcome">Start your journey <span class="wave">🌱</span></h2>
+                <p class="welcome-sub">Create your free ResearchRoots account in a minute.</p>
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="flash-box">
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
+                <form method="POST" action="{{ url_for('signup') }}" id="signup-form">
+                    <label for="name">Full name</label>
+                    <input type="text" id="name" name="name" placeholder="Priya Sharma" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@university.edu" required>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="At least 6 characters" required minlength="6">
+
+                    <label for="confirm_password">Confirm password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required minlength="6">
+
+                
+                    <p id="password-warning" class="inline-warning" style="display:none;">
+                        Passwords do not match.
+                    </p>
+
+                    <button type="submit" class="primary-btn">Create my account &rarr;</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
