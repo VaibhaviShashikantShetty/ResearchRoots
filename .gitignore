@@ -1,2 +1,12 @@
+#python
+__pycache__/
+*.pyc
+
 #virtualenv
 venv/
+
+#databse
+*.db
+
+#env variable
+.env
