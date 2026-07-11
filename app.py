@@ -13,7 +13,7 @@ app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "researchroots.db")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # turns off a feature we don't need, saves memory
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  
 
 db.init_app(app)
 
